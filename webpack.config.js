@@ -1,9 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: [
-        './src/index.js'
-    ],
+    entry: ['./src/index.js'],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'build.js',
@@ -21,9 +19,9 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ["react", "es2015", "stage-0"]
+                    presets: ['react', 'es2015', 'stage-0']
                 }
             }
         ]
     }
-}
+};
