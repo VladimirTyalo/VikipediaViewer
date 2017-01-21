@@ -1,8 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const hello = () => console.log("Hello world");
+import App from './container/App.jsx';
 
-
-const {a: x} = {a: 22};
-
-console.log(x);
-hello();
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+)
