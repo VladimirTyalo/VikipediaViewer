@@ -1,0 +1,9 @@
+@keyframes bounce {
+    0%, 100% {transform: translateX(10px);}
+}
+
+.app {
+    background: blue;
+    color: white;
+    animation-name: bounce;
+}
