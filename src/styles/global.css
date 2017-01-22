@@ -1,5 +1,15 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     background: seagreen;
+}
+
+.box {
+    background: red;
 }
 
 *::-webkit-input-placeholder {
