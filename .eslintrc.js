@@ -273,7 +273,7 @@ module.exports = {
             1,
             {
                 'require': {
-                    'FunctionDeclaration': true,
+                    'FunctionDeclaration': false,
                     'MethodDefinition': true,
                     'ClassDeclaration': true
                 }

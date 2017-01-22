@@ -21,9 +21,12 @@ const common = {
     },
     resolve: {
         // for webpack version < 2.0 use ['', '.js', '.jsx']
-        extensions: ['*', '.js', '.jsx', '.css']
+        extensions: [
+            '*', '.js', '.jsx', '.css'
+        ],
+        modules: ['node_modules', './src/components', './src/containers']
     },
-    devtool: 'eval-source-map',
+
     module: {
 
         loaders: [
@@ -36,9 +39,8 @@ const common = {
                 }
             }, {
                 test: /\.css$/,
-                loaders: [
-                    'style-loader', 'css-loader?sourceMap', 'autoprefixer-loader?browsers=Last 3 versions'
-                ]
+                exclude: /node_modules/,
+                loaders: 'style-loader!css-loader?modules&localIdentName=[name]__[local]--[hash:base64:7]'
             }
         ]
     },
@@ -46,6 +48,7 @@ const common = {
 };
 
 const developmentConfig = {
+    devtool: 'eval-source-map',
     devServer: {
         // Enable history API fallback so HTML5 History API based routing works. This is
         // a good default that will come in handy in more complicated setups.

@@ -1,9 +1,6 @@
-@keyframes bounce {
-    0%, 100% {transform: translateX(10px);}
-}
-
 .app {
-    background: blue;
-    color: white;
-    animation-name: bounce;
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto;
 }
