@@ -1,12 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import s from './OutputWrapper.css';
+import Article from '../Article/Article';
 
 class OutputWrapper extends Component {
-    render() {
+
+    list = this.props.articles.map((art) => {
         return (
-            <div className={s.wrapper}>
+            <li key={art.title}>
+                <Article article={art}/>
+            </li>
+        );
+    });
+    render() {
+
+        return (
+            <ul className={s.wrapper}>
                 Find Wikipedia articles for things you are interested in.
-            </div>
+                 {this.list || <div></div>}
+            </ul>
         );
     }
 }

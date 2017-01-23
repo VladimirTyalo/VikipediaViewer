@@ -17,7 +17,7 @@ const common = {
     output: {
         path: PATHS.dist,
         filename: '[name].js',
-        publicPath: '/dist/'
+        publicPath: '/'
     },
     resolve: {
         // for webpack version < 2.0 use ['', '.js', '.jsx']
