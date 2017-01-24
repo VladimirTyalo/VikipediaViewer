@@ -4,3 +4,9 @@
     text-align: center;
     margin: 0 auto;
 }
+
+.icon {
+    fill: red;
+    width: 20px;
+    height: 20px;
+}

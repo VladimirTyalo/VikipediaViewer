@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import s from './Article.css';
 
 class Article extends Component {
     render() {
-        const {title, author, context, date} = this.props.article;
-        console.log(this.props.title);
+        const {title, context, link} = this.props.article;
+
         return (
             <article className={s.article}>
-                <h3>{title}</h3>
-                <p>{context}</p>
-                <cite>{author}</cite>
-                <span>{date}</span>
+                <a href={link} className={s.link} target='_blank'>
+                    <h3 className={s.title}>{title}</h3>
+                    <p className={s.text}>{context}</p>
+                </a>
             </article>
         );
     }

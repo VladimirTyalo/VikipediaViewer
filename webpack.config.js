@@ -24,8 +24,12 @@ const common = {
         extensions: [
             '*', '.js', '.jsx', '.css'
         ],
-        modules: ['node_modules', './src/components', './src/containers']
+        modules: ['node_modules', './src/components', './src/containers'],
+        alias: {
+            images: path.join(__dirname, 'src/assets/images')
+        }
     },
+
 
     module: {
 
@@ -44,7 +48,7 @@ const common = {
             }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({title: 'Wikipedia Viewer', filename: 'index.html', template: 'src/templates/index.html', favicon: 'src/assets/images/favicons/favicon.ico'})]
+    plugins: [new HtmlWebpackPlugin({ title: 'Wikipedia Viewer', filename: 'index.html', template: 'src/templates/index.html', favicon: 'src/assets/images/favicons/favicon.ico' })]
 };
 
 const developmentConfig = {
@@ -85,7 +89,8 @@ const developmentConfig = {
         new webpack.NamedModulesPlugin(),
         // ignore node_modules so CPU usage with poll watching drops significantly
         new webpack.WatchIgnorePlugin([path.join(__dirname, 'node_modules')])
-    ]
+    ],
+
 };
 
 module.exports = function webpackConfig(env) {

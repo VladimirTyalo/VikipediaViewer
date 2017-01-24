@@ -8,7 +8,7 @@ export default class Header extends React.Component {
         return (
             <header>
                 <Title />
-                <Form />
+                <Form {...this.props}/>
                 {this.props.children}
             </header>
         );

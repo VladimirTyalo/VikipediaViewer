@@ -228,7 +228,7 @@ module.exports = {
         'id-match': 0, // require identifiers to match the provided regular expression
         'indent': 2, // specify tab or space width for your code (fixable)
         'jsx-quotes': [
-            2,
+            1,
             'prefer-single'
         ], // specify whether double or single quotes should be used in JSX attributes
         'key-spacing': 0, // enforces spacing between keys and values in object literal properties
@@ -265,7 +265,7 @@ module.exports = {
         'padded-blocks': 0, // enforce padding within blocks (off by default)
         'quote-props': 0, // require quotes around object literal property names (off by default)
         'quotes': [
-            2,
+            1,
             'single',
             'avoid-escape'
         ], // specify whether double or single quotes should be used
