@@ -11,6 +11,4 @@
  1. JavaScript ES2016
  2. Webpack
  3. React
- 4. Testing (Mocha, Chai, ...)
 
-## 
