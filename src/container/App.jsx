@@ -66,6 +66,7 @@ export class App extends Component {
         let data;
         const self = this;
         this.setState({ isFetching: true });
+
         if (word == '') {
             data = {
                 action: "query",
@@ -81,44 +82,56 @@ export class App extends Component {
                 limit: limit
             };
         }
-        return Promise.resolve($.ajax({
-            url: "https://en.wikipedia.org/w/api.php",
-            dataType: "jsonp",
-            data: data
-        })).then((response) => {
-            let articles;
-            if (word == '') {
-                const id = response.query.random[0].id;
-                data = {
-                    action: 'query',
-                    format: "json",
-                    prop: 'info',
-                    pageids: id,
-                    inprop: 'url'
-                };
-                return Promise.resolve($.ajax({
-                    url: "https://en.wikipedia.org/w/api.php",
-                    dataType: "jsonp",
-                    data: data
-                })).then((result) => {
-                    const info = result.query.pages[id];
-                    return [{
-                        title: info.title,
-                        link: info.canonicalurl
-                    }];
+
+        return Promise.resolve(
+            $.ajax({
+                url: "https://en.wikipedia.org/w/api.php &callback=?",
+                dataType: "jsonp",
+                data: data
+            }))
+            .then((response) => {
+                let articles;
+                if (word == '') {
+                    const id = response.query.random[0].id;
+                    data = {
+                        action: 'query',
+                        format: "json",
+                        prop: 'info',
+                        pageids: id,
+                        inprop: 'url'
+                    };
+                    return Promise.resolve($.ajax({
+                        url: "https://en.wikipedia.org/w/api.php&callback=?",
+                        dataType: "jsonp",
+                        data: data,
+                        success: function success(result) {
+                            const info = result.query.pages[id];
+                            return [{
+                                title: info.title,
+                                link: info.canonicalurl
+                            }];
+                        }
+                    })).then((result) => {
+                        const info = result.query.pages[id];
+                        return [{
+                            title: info.title,
+                            link: info.canonicalurl
+                        }];
+                    });
+                }
+                return Array.from(response[1]).map((word, index) => {
+                    return {
+                        title: word,
+                        context: response[2][index],
+                        link: response[3][index]
+                    };
                 });
-            }
-            return Array.from(response[1]).map((word, index) => {
-                return {
-                    title: word,
-                    context: response[2][index],
-                    link: response[3][index]
-                };
-            });
-        }).then((articles) => {
-            self.setState({ articles: articles, isFetching: false });
-        }).catch((err) => { console.log(err); });
+            }).then((articles) => {
+                self.setState({ articles: articles, isFetching: false });
+            }).catch((err) => { console.log(err); });
     }
+
+
 
     fetchData(word) {
         this._makeRequest(word, 10);
