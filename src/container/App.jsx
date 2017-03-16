@@ -85,8 +85,8 @@ export class App extends Component {
 
         return Promise.resolve(
             $.ajax({
-                url: "https://en.wikipedia.org/w/api.php &callback=?",
-                dataType: "jsonp",
+                url: "https://en.wikipedia.org/w/api.php",
+                dataType: "json",
                 data: data
             }))
             .then((response) => {
@@ -101,16 +101,9 @@ export class App extends Component {
                         inprop: 'url'
                     };
                     return Promise.resolve($.ajax({
-                        url: "https://en.wikipedia.org/w/api.php&callback=?",
-                        dataType: "jsonp",
-                        data: data,
-                        success: function success(result) {
-                            const info = result.query.pages[id];
-                            return [{
-                                title: info.title,
-                                link: info.canonicalurl
-                            }];
-                        }
+                        url: "https://en.wikipedia.org/w/api.php",
+                        dataType: "json",
+                        data: data
                     })).then((result) => {
                         const info = result.query.pages[id];
                         return [{

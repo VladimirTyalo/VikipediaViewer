@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    // http://eslint.org/docs/rules/
+    // https://eslint.org/docs/rules/
 
     'ecmaFeatures': {
         'arrowFunctions': true, // enable arrow functions
