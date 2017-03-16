@@ -86,7 +86,7 @@ export class App extends Component {
         return Promise.resolve(
             $.ajax({
                 url: "https://en.wikipedia.org/w/api.php",
-                dataType: "json",
+                dataType: "jsonp",
                 data: data
             }))
             .then((response) => {
@@ -102,7 +102,7 @@ export class App extends Component {
                     };
                     return Promise.resolve($.ajax({
                         url: "https://en.wikipedia.org/w/api.php",
-                        dataType: "json",
+                        dataType: "jsonp",
                         data: data
                     })).then((result) => {
                         const info = result.query.pages[id];
