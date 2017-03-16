@@ -1,7 +1,7 @@
 # Wikipedia Viewer
 
 ## Introduction
-<a href="http://google.com" target="_blank">This application</a> can find a group of related wikipedia articles based on a searched keyword.
+<a href="https://vladimirtyalo.github.io/VikipediaViewer/" target="_blank">This application</a> can find a group of related wikipedia articles based on a searched keyword.
 
 ## Functional Requirements
 + User stories

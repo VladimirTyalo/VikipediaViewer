@@ -82,7 +82,7 @@ export class App extends Component {
             };
         }
         return Promise.resolve($.ajax({
-            url: "http://en.wikipedia.org/w/api.php",
+            url: "https://en.wikipedia.org/w/api.php",
             dataType: "jsonp",
             data: data
         })).then((response) => {
@@ -97,7 +97,7 @@ export class App extends Component {
                     inprop: 'url'
                 };
                 return Promise.resolve($.ajax({
-                    url: "http://en.wikipedia.org/w/api.php",
+                    url: "https://en.wikipedia.org/w/api.php",
                     dataType: "jsonp",
                     data: data
                 })).then((result) => {
